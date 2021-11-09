@@ -46,23 +46,39 @@ options {
 };
 ```
 Dengan mengkonfigurasi DHCP server dan DHCP Relay seleuruh Client yang berada pada subnet interface switch 1 dan switch 3 akan otomatis mendapatkan IP pada rentang yang telah dikonfigurasi. Untuk contohnya adalah sebagai berikut:
+
 [ Loguetown ]
+
 ![](image/loguetown-5.png)
+
 [ Alabasta ]
+
 ![](image/alabasta-5.png)
+
 [ TottoLand ]
+
 ![](image/Totoland-5.png)
+
 [ Skypie ]
+
 ![](image/skypie-5.png)
 
 Semua Client juga akan bisa konek ke internet
+
 [ Loguetown ]
+
 ![](image/loguetown-test.png)
+
 [ Alabasta ]
+
 ![](image/alabasta.png)
+
 [ TottoLand ]
+
 ![](image/Totoland-test.png)
+
 [ Skypie ]
+
 ![](image/skypie-test.png)
 
 ### SOAL 6
