@@ -101,3 +101,4 @@ iface eth0 inet dhcp
 hwaddress ether be:c0:ff:37:bb:09
 ```
 Maka Skypie akan mendapatkan IP ```10.45.3.69```
+![](image/testing-fix-ip-skypie.png)
