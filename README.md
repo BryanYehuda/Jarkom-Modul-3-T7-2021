@@ -64,3 +64,22 @@ Semua Client juga akan bisa konek ke internet
 ![](image/Totoland-test.png)
 [ Skypie ]
 ![](image/skypie-test.png)
+
+### SOAL 6
+Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 6 menit sedangkan pada client yang melalui Switch3 selama 12 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 120 menit. (6)
+#### JAWABAN
+Pada subnet interface switch 1 dan 3 ditambahkan konfigurasi berikut pada file /etc/dhcp/dhcpd.conf
+```
+subnet 10.45.1.0 netmask 255.255.255.0 {
+    ...
+    default-lease-time 360; 
+    max-lease-time 7200;
+    ...
+}
+subnet 10.45.3.0 netmask 255.255.255.0 {
+    ...
+    default-lease-time 720;
+    max-lease-time 7200;
+    ...
+}
+```
