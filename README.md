@@ -117,4 +117,20 @@ iface eth0 inet dhcp
 hwaddress ether be:c0:ff:37:bb:09
 ```
 Maka Skypie akan mendapatkan IP ```10.45.3.69```
+
 ![](image/testing-fix-ip-skypie.png)
+
+### SOAL 8
+Loguetown digunakan sebagai client Proxy agar transaksi jual beli dapat terjamin keamanannya, juga untuk mencegah kebocoran data transaksi.
+
+Pada Loguetown, proxy harus bisa diakses dengan nama jualbelikapal.yyy.com dengan port yang digunakan adalah 5000 (8)
+#### JAWABAN
+
+#### TESTING
+Melakukan Export env http_proxy dengan```export http_proxy="http://jualbelikapal.t07.com:5000" ```
+
+![](image/testing-nomor-8-1.png)
+
+Ketika dikases akan tetap bisa menggunakan proxy
+
+![](image/testing-nomor-8-2.png)
