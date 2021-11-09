@@ -83,3 +83,21 @@ subnet 10.45.3.0 netmask 255.255.255.0 {
     ...
 }
 ```
+
+### SOAL 7
+Luffy dan Zoro berencana menjadikan Skypie sebagai server untuk jual beli kapal yang dimilikinya dengan alamat IP yang tetap dengan IP [prefix IP].3.69 (7)
+#### JAWABAN
+Menambahkan konfigurasi untuk fixed address pada /etc/dhcp/dhcpd.conf
+```
+host Skypie {
+    hardware ethernet be:c0:ff:37:bb:09;
+    fixed-address 10.45.3.69;
+}
+```
+Setelah itu tidak lupa untuk mengganti konfigurasi pada file /etc/network/interfaces dengan 
+```
+auto eth0
+iface eth0 inet dhcp
+hwaddress ether be:c0:ff:37:bb:09
+```
+Maka Skypie akan mendapatkan IP ```10.45.3.69```
