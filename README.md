@@ -51,30 +51,30 @@ options {
 #### TESTING
 Dengan mengkonfigurasi DHCP server dan DHCP Relay seleuruh Client yang berada pada subnet interface switch 1 dan switch 3 akan otomatis mendapatkan IP pada rentang yang telah dikonfigurasi. Untuk contohnya adalah sebagai berikut:
 
-**Loguetown**     
+**Loguetown**      
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/loguetown-5.png?raw=true)       
 
-**Alabasta**     
+**Alabasta**      
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/alabasta-5.png?raw=true)     
 
-**TottoLand**
+**TottoLand**       
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/Totoland-5.png?raw=true)
 
-**Skypie**     
+**Skypie**       
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/skypie-5.png?raw=true)
 
 Semua Client juga akan bisa connect ke internet
 
-**Loguetown**
+**Loguetown**        
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/loguetown-test.png?raw=true)
 
-**Alabasta**
+**Alabasta**     
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/alabasta-test.png?raw=true)
 
-**TottoLand**
+**TottoLand**      
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/Totoland-test.png?raw=true)
 
-**Skypie**
+**Skypie**      
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/skypie-test.png?raw=true)
 
 ### SOAL 6
