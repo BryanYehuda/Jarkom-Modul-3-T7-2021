@@ -121,10 +121,49 @@ Maka Skypie akan mendapatkan IP `10.45.3.69`
 Loguetown digunakan sebagai client Proxy agar transaksi jual beli dapat terjamin keamanannya, juga untuk mencegah kebocoran data transaksi.
 
 Pada Loguetown, proxy harus bisa diakses dengan nama `jualbelikapal.yyy.com` dengan port yang digunakan adalah `5000`
-#### Jawaban Soal 8
-Melakukan Export env http_proxy dengan`export http_proxy="http://jualbelikapal.t07.com:5000" `
-#### TESTING
 
+#### Jawaban Soal 8
+**Proxy Water7**    
+Menambahkan konfigurasi pada `/etc/squid/squid.conf`  
+```
+echo "
+http_port 5000
+visible_hostname Water7
+#http_access allow all
+" 
+```
+Melakukan restart service bind9 dengan `service bind9 restart`  
+
+**Server Enieslobby**    
+Menambahkan konfigurasi pada `/etc/bind/named.conf.local`  
+```
+echo "
+zone \"jualbelikapal.t07.com\" {
+        type master;
+        file \"/etc/bind/jarkom/jualbelikapal.t07.com\";
+};
+" 
+```
+Membuat Directory baru dengan `mkdir /etc/bind/jarkom/ `
+Menambahkan konfigurasi pada `/etc/bind/jarkom/jualbelikapal.t07.com`  
+```
+echo "
+\$TTL    604800
+@       IN      SOA     jualbelikapal.t07.com. root.jualbelikapal.t07.com. (
+                        2021100401      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      jualbelikapal.t07.com.
+@       IN      A       10.45.2.3
+" 
+```
+Melakukan restart service bind9 dengan `service bind9 restart`
+
+#### TESTING
+Melakukan Export env http_proxy dengan`export http_proxy="http://jualbelikapal.t07.com:5000" `
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-8-1.png?raw=true)
 
 Ketika dikases akan tetap bisa menggunakan proxy
