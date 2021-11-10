@@ -7,7 +7,99 @@
 3. Mulki Kusumah    
 
 ## Jawaban Modul 
-  
+
+### SOAL 1 dan 2
+Luffy yang sudah menjadi Raja Bajak Laut ingin mengembangkan daerah kekuasaannya dengan membuat peta seperti berikut:
+![](image/contoh.png)
+Luffy bersama Zoro berencana membuat peta tersebut dengan kriteria EniesLobby sebagai DNS Server, Jipangu sebagai DHCP Server, Water7 sebagai Proxy Server (1) dan Foosha sebagai DHCP Relay (2). Luffy dan Zoro menyusun peta tersebut dengan hati-hati dan teliti.
+#### JAWABAN
+[ EniesLobby ] -> DNS server
+
+EniesLobby sebagai DNS Server sehingga perlu melakukan install bind9
+```
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt-get update
+apt-get install bind9 -y
+```
+
+[ Skypea ] -> web server
+
+Skypea sebagai Web server sehingga perlu melakukan download apache
+```
+apt-get install apache2 -y
+service apache2 start
+apt-get install php -y
+apt-get install libapache2-mod-php7.0 -y
+apt-get install ca-certificates openssl -y
+```
+
+[ Water7 ] -> Proxy server
+
+Water7 Sebagai Proxy server sehingga perlu melakukan install squid
+```
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt-get update
+apt-get install libapache2-mod-php7.0 -y
+apt-get install squid -y
+```
+[ Fosha ] -> DHCP Relay
+
+Fosha sebagai DHCP Relay sehingga perlu melakukan install isc-dhcp-relay
+```
+apt-get update
+apt-get install isc-dhcp-relay -y
+```
+[ Jipangu ] -> DHCP Server
+
+```
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt-get update
+apt-get install isc-dhcp-server -y
+```
+Kami juga sudah membuat topologi
+![](image/topologi.png)
+Untuk konfigurasi setiap nodenya adalah sebagai berikut
+
+[ Foosha ]
+![](image/fosha.png)
+untuk lebih lengkapnya adalah sebagai berikut:
+```
+ auto eth0
+ iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 10.45.1.1
+	netmask 255.255.255.0
+
+auto eth2
+iface eth2 inet static
+	address 10.45.2.1
+	netmask 255.255.255.0
+
+auto eth3
+iface eth3 inet static
+	address 10.45.3.1
+	netmask 255.255.255.0
+```
+
+[ EniesLobby ]
+![](image/EniesLobby.png)
+
+[ Water7 ]
+![](image/water7.png)
+
+
+[ Jipangu ]
+![](image/Jipangu.png)
+
+Untuk Setiap Client yaitu Longuetown, Alabasta,TottoLand menggunakan konfigurasi sebagai berikut untuk penerapan DHCP
+
+![](image/clientpng.png)
+
+Terkecuali untuk CLient Skypie yang akan mendaptkan alamat yang tetap yaitu 10.45.3.69 dengan konfigurasi seabagi berikut
+
+![](image/skypie.png)
 ### SOAL 4        
 Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.30 - [prefix IP].3.50  
 
