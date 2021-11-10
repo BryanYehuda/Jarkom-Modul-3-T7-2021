@@ -100,6 +100,9 @@ Untuk Setiap Client yaitu Longuetown, Alabasta,TottoLand menggunakan konfigurasi
 Terkecuali untuk CLient Skypie yang akan mendaptkan alamat yang tetap yaitu 10.45.3.69 dengan konfigurasi seabagi berikut
 
 ![](image/skypie.png)
+### SOAL 3
+Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server.
+Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.20 - [prefix IP].1.99 dan [prefix IP].1.150 - [prefix IP].1.169 (3)
 ### SOAL 4        
 Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.30 - [prefix IP].3.50  
 
