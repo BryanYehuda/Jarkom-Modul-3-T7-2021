@@ -100,9 +100,80 @@ Untuk Setiap Client yaitu Longuetown, Alabasta,TottoLand menggunakan konfigurasi
 Terkecuali untuk CLient Skypie yang akan mendaptkan alamat yang tetap yaitu 10.45.3.69 dengan konfigurasi seabagi berikut
 
 ![](image/skypie.png)
+
 ### SOAL 3
 Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server.
 Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.20 - [prefix IP].1.99 dan [prefix IP].1.150 - [prefix IP].1.169 (3)
+#### JAWABAN
+Konfigurasi DHCP Relay pada Fosha
+
+[ Fosha ] -> DHCP Relay
+Lakukan konfigurasi pada Fosha dengan melakukan edit file /etc/default/isc-dhcp-relay dengan konfigurasi berikut
+```
+# Defaults for isc-dhcp-relay initscript
+# sourced by /etc/init.d/isc-dhcp-relay
+# installed at /etc/default/isc-dhcp-relay by the maintainer scripts
+
+#
+# This is a POSIX shell fragment
+#
+
+# What servers should the DHCP relay forward requests to?
+SERVERS="10.45.2.4"
+
+# On what interfaces should the DHCP relay (dhrelay) serve DHCP requests?
+INTERFACES="eth1 eth3 eth2"
+
+# Additional options that are passed to the DHCP relay daemon?
+OPTIONS=""
+
+```
+
+Konfigurasi DHCP Server pada Jipangu
+
+[ Jipangu ] -> DHCP Server
+Membuat Jipangu menjadi DHCP Server. Karena Jipangu Terhubung dengan Fosha melalui eth0 sehingga lakukan konfigurasi pada file /etc/default/isc-dhcp-server sebagai berikut:
+
+```
+# Defaults for isc-dhcp-server initscript
+# sourced by /etc/init.d/isc-dhcp-server
+# installed at /etc/default/isc-dhcp-server by the maintainer scripts
+
+#
+# This is a POSIX shell fragment
+#
+
+# Path to dhcpd's config file (default: /etc/dhcp/dhcpd.conf).
+#DHCPD_CONF=/etc/dhcp/dhcpd.conf
+
+# Path to dhcpd's PID file (default: /var/run/dhcpd.pid).
+#DHCPD_PID=/var/run/dhcpd.pid
+
+# Additional options to start dhcpd with.
+#       Don't use options -cf or -pf here; use DHCPD_CONF/ DHCPD_PID instead
+#OPTIONS=""
+
+# On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
+#       Separate multiple interfaces with spaces, e.g. "eth0 eth1".
+INTERFACES="eth0"
+```
+Lakukan restart DHCP server dengan ```service isc-dhcp-server restart```
+Setelah itu lakukan konfigurasi untuk rentang IP yang akan diberikan pada file  /etc/dhcp/dhcpd.conf dengan cara
+```
+subnet 10.45.2.0 netmask 255.255.255.0 {
+}
+subnet 10.45.1.0 netmask 255.255.255.0 {
+    range  10.45.1.20 10.45.1.99;
+    range  10.45.1.150 10.45.1.169;
+    option routers 10.45.1.1;
+    option broadcast-address 10.45.1.255;
+    option domain-name-servers 10.45.2.2;
+    default-lease-time 360;
+    max-lease-time 7200;
+}
+
+```
+
 ### SOAL 4        
 Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.30 - [prefix IP].3.50  
 
