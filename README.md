@@ -144,7 +144,7 @@ zone \"jualbelikapal.t07.com\" {
 };
 " 
 ```
-Membuat Directory baru dengan `mkdir /etc/bind/jarkom/ `
+Membuat Directory baru dengan `mkdir /etc/bind/jarkom/ `         
 Menambahkan konfigurasi pada `/etc/bind/jarkom/jualbelikapal.t07.com`  
 ```
 echo "
@@ -166,5 +166,38 @@ Melakukan restart service bind9 dengan `service bind9 restart`
 Melakukan Export env http_proxy dengan`export http_proxy="http://jualbelikapal.t07.com:5000" `
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-8-1.png?raw=true)
 
-Ketika dikases akan tetap bisa menggunakan proxy
-![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-8-2.png?raw=true)
+Ketika diakses akan tetap bisa menggunakan proxy
+![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-8-2.png?raw=true)     
+
+### SOAL 9
+Agar transaksi jual beli lebih aman dan pengguna website ada dua orang, proxy dipasang autentikasi user proxy dengan `enkripsi MD5` dengan dua username, yaitu `luffybelikapalyyy` dengan password `luffy_yyy` dan `zorobelikapalyyy` dengan password `zoro_yyy`
+
+#### Jawaban Soal 9
+**Proxy Water7**    
+Menambahkan konfigurasi pada `/etc/squid/squid.conf`  
+```
+htpasswd -cbm /etc/squid/passwd luffybelikapalt07 luffy_t07
+htpasswd -bm /etc/squid/passwd zorobelikapalt07 zoro_t07
+echo "
+http_port 5000
+visible_hostname Water7
+#http_access allow all
+
+
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd
+auth_param basic children 5
+auth_param basic realm Proxy
+auth_param basic credentialsttl 2 hours
+auth_param basic casesensitive on
+acl USERS proxy_auth REQUIRED
+http_access deny all
+" 
+```
+Melakukan restart service squid dengan `service squid restart`  
+
+#### TESTING
+Testing Luffy dan Zoro     
+![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-9-1.png?raw=true)
+
+Ketika diakses akan tetap bisa menggunakan proxy     
+![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-9-2.png?raw=true)
