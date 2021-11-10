@@ -354,3 +354,63 @@ Melakukan restart service squid dengan `service squid restart`
 
 Ketika diakses akan tetap bisa menggunakan proxy     
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-11-2.png?raw=true)
+
+### SOAL 12 dan 13
+Saatnya berlayar! Luffy dan Zoro akhirnya memutuskan untuk berlayar untuk mencari harta karun di `super.franky.yyy.com`. Tugas pencarian dibagi menjadi dua misi, Luffy bertugas untuk mendapatkan `gambar (.png, .jpg)`, sedangkan Zoro mendapatkan sisanya. Karena Luffy orangnya sangat teliti untuk mencari harta karun, ketika ia berhasil mendapatkan gambar, ia mendapatkan gambar dan melihatnya dengan kecepatan 10 kbps.
+Sedangkan, Zoro yang sangat bersemangat untuk mencari harta karun, sehingga kecepatan kapal Zoro tidak dibatasi ketika sudah mendapatkan harta yang diinginkannya.
+
+#### Jawaban Soal 12 dan 13
+**Proxy Water7**     
+Menambahkan konfigurasi pada `/etc/squid/squid.conf`  
+```
+echo "
+include /etc/squid/acl.conf
+
+http_port 5000
+visible_hostname Water7
+#http_access allow all
+
+
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd
+auth_param basic children 5
+auth_param basic realm Proxy
+auth_param basic credentialsttl 2 hours
+auth_param basic casesensitive on
+acl USERS proxy_auth REQUIRED
+
+#client acl for the lan
+acl lan src 10.45.3.0/24 10.45.1.0/24
+
+#to deny \"google.com\"
+acl badsites dstdomain .google.com
+
+#Deny with redirect to Google SafeSearch for lan
+deny_info http://super.franky.t07.com lan
+
+#Deny badsites to lan
+http_reply_access deny badsites lan
+
+http_access allow USERS AVAILABLE_WORKING
+
+dns_nameservers 10.45.2.2
+
+
+acl multimedia url_regex -i \.png$ \.jpg$
+acl bar proxy_auth luffybelikapalt07
+delay_pools 1
+delay_class 1 1
+delay_parameters 1 1250/3200
+delay_access 1 allow multimedia bar
+delay_access 1 deny ALL
+http_access deny ALL
+"
+```
+Melakukan restart service squid dengan `service squid restart`  
+
+#### TESTING
+**NOMOR 12**
+![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-12-1.png?raw=true)
+![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-12-2.png?raw=true)
+
+**NOMOR 13**
+![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-13-1.png?raw=true)
