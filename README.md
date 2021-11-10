@@ -311,7 +311,7 @@ a2dissite 000-default
 ```
 Melakukan restart service apache2 dengan `service apache2 restart`  
 
-**Proxy Water7**
+**Proxy Water7**     
 Menambahkan konfigurasi pada `/etc/squid/squid.conf`  
 ```
 echo "
