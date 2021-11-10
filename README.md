@@ -201,3 +201,45 @@ Testing Luffy dan Zoro
 
 Ketika diakses akan tetap bisa menggunakan proxy     
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-9-2.png?raw=true)
+
+### SOAL 10
+Transaksi jual beli tidak dilakukan setiap hari, oleh karena itu akses internet dibatasi hanya dapat diakses setiap hari Senin-Kamis pukul 07.00-11.00 dan setiap hari Selasa-Jumat pukul 17.00-03.00 keesokan harinya (sampai Sabtu pukul 03.00) 
+
+#### Jawaban Soal 10
+**Proxy Water7**    
+Menambahkan konfigurasi pada `/etc/squid/acl.conf`  
+```
+echo "
+acl AVAILABLE_WORKING time MTWH 07:00-11:00
+acl AVAILABLE_WORKING time TWHF 17:00-23:59
+acl AVAILABLE_WORKING time WHFA 00:00-03:00
+"
+```
+
+
+Menambahkan konfigurasi pada `/etc/squid/squid.conf`  
+```
+echo "
+include /etc/squid/acl.conf
+
+http_port 5000
+visible_hostname Water7
+#http_access allow all
+
+
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd
+auth_param basic children 5
+auth_param basic realm Proxy
+auth_param basic credentialsttl 2 hours
+auth_param basic casesensitive on
+acl USERS proxy_auth REQUIRED
+http_access allow USERS AVAILABLE_WORKING
+http_access deny all
+"
+```
+Melakukan restart service squid dengan `service squid restart`  
+
+#### TESTING
+
+![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-10-1.png?raw=true)
+![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-10-2.png?raw=true)
