@@ -57,11 +57,15 @@ apt-get update
 apt-get install isc-dhcp-server -y
 ```
 Kami juga sudah membuat topologi
+
 ![](image/topologi.png)
+
 Untuk konfigurasi setiap nodenya adalah sebagai berikut
 
 [ Foosha ]
+
 ![](image/fosha.png)
+
 untuk lebih lengkapnya adalah sebagai berikut:
 ```
  auto eth0
@@ -84,13 +88,16 @@ iface eth3 inet static
 ```
 
 [ EniesLobby ]
+
 ![](image/EniesLobby.png)
 
 [ Water7 ]
+
 ![](image/water7.png)
 
 
 [ Jipangu ]
+
 ![](image/Jipangu.png)
 
 Untuk Setiap Client yaitu Longuetown, Alabasta,TottoLand menggunakan konfigurasi sebagai berikut untuk penerapan DHCP
@@ -217,30 +224,38 @@ options {
 #### TESTING
 Dengan mengkonfigurasi DHCP server dan DHCP Relay seleuruh Client yang berada pada subnet interface switch 1 dan switch 3 akan otomatis mendapatkan IP pada rentang yang telah dikonfigurasi. Untuk contohnya adalah sebagai berikut:
 
-**Loguetown**      
+**Loguetown**   
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/loguetown-5.png?raw=true)       
 
-**Alabasta**      
+**Alabasta**  
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/alabasta-5.png?raw=true)     
 
-**TottoLand**       
+**TottoLand**   
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/Totoland-5.png?raw=true)
 
-**Skypie**       
+**Skypie**    
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/skypie-5.png?raw=true)
 
 Semua Client juga akan bisa connect ke internet
 
-**Loguetown**        
+**Loguetown**  
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/loguetown-test.png?raw=true)
 
 **Alabasta**     
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/alabasta-test.png?raw=true)
 
-**TottoLand**      
+**TottoLand**  
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/Totoland-test.png?raw=true)
 
-**Skypie**      
+**Skypie**  
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/skypie-test.png?raw=true)
 
 ### SOAL 6
@@ -281,6 +296,7 @@ iface eth0 inet dhcp
 hwaddress ether be:c0:ff:37:bb:09
 ```
 Maka Skypie akan mendapatkan IP `10.45.3.69`
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-fix-ip-skypie.png?raw=true)
 
 ### SOAL 8
@@ -330,9 +346,11 @@ Melakukan restart service bind9 dengan `service bind9 restart`
 
 #### TESTING
 Melakukan Export env http_proxy dengan`export http_proxy="http://jualbelikapal.t07.com:5000" `
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-8-1.png?raw=true)
 
 Ketika diakses akan tetap bisa menggunakan proxy
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-8-2.png?raw=true)     
 
 ### SOAL 9
@@ -362,10 +380,12 @@ http_access deny all
 Melakukan restart service squid dengan `service squid restart`  
 
 #### TESTING
-Testing Luffy dan Zoro     
+Testing Luffy dan Zoro  
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-9-1.png?raw=true)
 
-Ketika diakses akan tetap bisa menggunakan proxy     
+Ketika diakses akan tetap bisa menggunakan proxy  
+   
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-9-2.png?raw=true)
 
 ### SOAL 10
@@ -408,6 +428,7 @@ Melakukan restart service squid dengan `service squid restart`
 #### TESTING
 
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-10-1.png?raw=true)
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-10-2.png?raw=true)
 
 ### SOAL 11
@@ -576,6 +597,7 @@ Melakukan restart service squid dengan `service squid restart`
 #### TESTING
 **NOMOR 12**
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-12-1.png?raw=true)
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-12-2.png?raw=true)
 
 **NOMOR 13**
