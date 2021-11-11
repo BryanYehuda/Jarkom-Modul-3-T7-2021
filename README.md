@@ -10,7 +10,9 @@
 
 ### SOAL 1 dan 2
 Luffy yang sudah menjadi Raja Bajak Laut ingin mengembangkan daerah kekuasaannya dengan membuat peta seperti berikut:
+
 ![](image/contoh.png)
+
 Luffy bersama Zoro berencana membuat peta tersebut dengan kriteria EniesLobby sebagai DNS Server, Jipangu sebagai DHCP Server, Water7 sebagai Proxy Server (1) dan Foosha sebagai DHCP Relay (2). Luffy dan Zoro menyusun peta tersebut dengan hati-hati dan teliti.
 #### JAWABAN
 [ EniesLobby ] -> DNS server
@@ -115,6 +117,7 @@ Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.20 - [prefix
 Konfigurasi DHCP Relay pada Fosha
 
 [ Fosha ] -> DHCP Relay
+
 Lakukan konfigurasi pada Fosha dengan melakukan edit file /etc/default/isc-dhcp-relay dengan konfigurasi berikut
 ```
 # Defaults for isc-dhcp-relay initscript
@@ -139,6 +142,7 @@ OPTIONS=""
 Konfigurasi DHCP Server pada Jipangu
 
 [ Jipangu ] -> DHCP Server
+
 Membuat Jipangu menjadi DHCP Server. Karena Jipangu Terhubung dengan Fosha melalui eth0 sehingga lakukan konfigurasi pada file /etc/default/isc-dhcp-server sebagai berikut:
 
 ```
@@ -539,7 +543,8 @@ Melakukan restart service squid dengan `service squid restart`
 
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-11-1.png?raw=true)
 
-Ketika diakses akan tetap bisa menggunakan proxy     
+Ketika diakses akan tetap bisa menggunakan proxy 
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-11-2.png?raw=true)
 
 ### SOAL 12 dan 13
@@ -596,9 +601,11 @@ Melakukan restart service squid dengan `service squid restart`
 
 #### TESTING
 **NOMOR 12**
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-12-1.png?raw=true)
 
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-12-2.png?raw=true)
 
 **NOMOR 13**
+
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-13-1.png?raw=true)
