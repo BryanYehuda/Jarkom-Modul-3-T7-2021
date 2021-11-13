@@ -384,11 +384,11 @@ http_access deny all
 Melakukan restart service squid dengan `service squid restart`  
 
 #### TESTING
-Testing Luffy dan Zoro  
+Pada ```/etc/squid/passwd``` terdapat username dan password yang telah terenkripsi
 
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-9-1.png?raw=true)
 
-Ketika diakses akan tetap bisa menggunakan proxy  
+Ketika mengakses sebuah situs maka akan diharuskan untuk melakukan login  
    
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-9-2.png?raw=true)
 
@@ -426,9 +426,10 @@ http_access deny all
 Melakukan restart service squid dengan `service squid restart`  
 
 #### TESTING
-
+Ketika pada hari dan jam kerja maka akan bisa diakses
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-10-1.png?raw=true)
 
+Ketika bukan pada hari dan jam kerja maka akan tidak bisa diakses
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-10-2.png?raw=true)
 
 ### SOAL 11
@@ -528,6 +529,7 @@ dns_nameservers 10.45.2.2
 Melakukan restart service squid dengan `service squid restart`  
 
 #### TESTING
+Melakukan ping pada super.franky.t07.com
 
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-11-1.png?raw=true)
 
@@ -587,13 +589,11 @@ Melakukan restart service squid dengan `service squid restart`
 
 #### TESTING
 **NOMOR 12**
-
+Ketika sebagai luffy dan mendownload gambar png atau jpg
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-12-1.png?raw=true)
 
-![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-12-2.png?raw=true)
-
 **NOMOR 13**
-
+Ketika sebagai zorro dan mendownload gambar ataupun file lain maka kecepatan tidak akan dibatasi
 ![](https://github.com/n0ppp/Jarkom-Modul-3-T7-2021/blob/main/image/testing-nomor-13-1.png?raw=true)
 
 ## Kendala
